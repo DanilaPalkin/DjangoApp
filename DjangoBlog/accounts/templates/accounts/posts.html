@@ -1,5 +1,14 @@
 {% extends 'accounts/base.html' %}
 
+{% load static %}
+
 {% block content %}
-    <h1>Posts</h1>
+<div class="container-sm">
+    <div class="card">
+        <img class="card-img-bottom" align="middle" src="{% static 'images/lessgo2.png' %}">
+        <div class="card-body">
+            This is some text within a card body.
+        </div>
+    </div>
+</div>
 {% endblock %}
