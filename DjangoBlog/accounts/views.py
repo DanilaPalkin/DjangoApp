@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import *
 
 
 def feed(request):
-    return render(request, 'accounts/dashboard.html')
+    posts = Post.objects.all()
+    return render(request, 'accounts/dashboard.html', {'posts': posts})
 
 
 def posts(request):
