@@ -9,7 +9,7 @@
                 <p>{{i.text}}</p>
             {% endif %}
             {% if i.media %}
-                <div class="card-img-bottom" align="center">{{i.media}}</div>
+                <img src="{{ MEDIA_URL }}/{{i.media}}">
             {% endif %}
             <p align="right">{{i.date_created}}</p>
         </div>
