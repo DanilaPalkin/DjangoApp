@@ -3,12 +3,17 @@
 {% load static %}
 
 {% block content %}
-<div class="container-sm">
-    <div class="card">
-        <img class="card-img-bottom" align="middle" src="{% static 'images/lessgo2.png' %}">
-        <div class="card-body">
-            This is some text within a card body.
-        </div>
+    <div class="card card-body" style="margin-right: 50px; margin-left: 50px; object-fit: scale-down; ">
+        <h5>{{post.author}}</h5>
+        <h4>{{post.title}}</h4>
+        {% if post.text %}
+            <p>{{post.text}}</p>
+        {% endif %}
+        {% if post.media %}
+            <img style="height: min-content; width: min-content; "
+                 src="/static{{ MEDIA_URL }}{{post.media.url}}">
+        {% endif %}
+        <a href="/post/{{post.id}}" align="right">{{post.date_created}}</a>
     </div>
-</div>
+    <br>
 {% endblock %}

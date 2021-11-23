@@ -8,8 +8,9 @@ def feed(request):
     return render(request, 'accounts/dashboard.html', {'posts': posts})
 
 
-def posts(request):
-    return render(request, 'accounts/posts.html')
+def post(request, pk):
+    post = Post.objects.get(id=pk)
+    return render(request, 'accounts/posts.html', {'post': post})
 
 
 def user(request):
