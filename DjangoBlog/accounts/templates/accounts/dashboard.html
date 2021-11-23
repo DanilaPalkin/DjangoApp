@@ -2,17 +2,17 @@
 
 {% block content %}
     {% for i in posts %}
-        <div class="card card-body" style="margin-right: 200px; margin-left: 200px; ">
+        <div class="card card-body" style="margin-right: 50px; margin-left: 50px; object-fit: scale-down; ">
             <h5>{{i.author.username}}</h5>
             <h4>{{i.title}}</h4>
             {% if i.text %}
                 <p>{{i.text}}</p>
             {% endif %}
             {% if i.media %}
-                <img style="height: min-content; width: min-content; object-fit: scale-down; "
+                <img style="height: min-content; width: min-content; "
                      src="static{{i.media.url}}">
             {% endif %}
-            <p align="right">{{i.date_created}}</p>
+            <a href="" align="right">{{i.date_created}}</a>
         </div>
         <br>
     {% endfor %}
