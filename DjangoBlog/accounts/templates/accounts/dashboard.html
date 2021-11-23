@@ -3,8 +3,8 @@
 {% block content %}
     {% for i in posts %}
         <div class="card card-body" style="margin-right: 200px; margin-left: 200px; ">
-            <p>{{i.author.username}}</p>
-            <p>{{i.title}}</p>
+            <h5>{{i.author.username}}</h5>
+            <h4>{{i.title}}</h4>
             {% if i.text %}
                 <p>{{i.text}}</p>
             {% endif %}
