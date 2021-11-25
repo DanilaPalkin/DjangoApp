@@ -1,6 +1,13 @@
 {% extends 'accounts/base.html' %}
 
 {% block content %}
+    <table align="center">
+        <tr>
+            <td><a class="btn btn-success btn-lg" href="#" role="button">Создать пост</a></td>
+            <td><a class="btn btn-danger btn-lg" href="#" role="button">Удалить пост</a></td>
+        </tr>
+    </table>
+    <br>
     {% for i in posts %}
         <div class="card card-body" style="margin-right: 50px; margin-left: 50px; object-fit: scale-down; ">
             <h5><a href="/user/{{i.author.id}}"

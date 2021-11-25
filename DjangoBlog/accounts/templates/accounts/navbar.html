@@ -11,9 +11,11 @@
                     <a class="nav-link active" aria-current="page" href="/">Главная</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form method="get">
+                {{ myFilter.form }}
+                {% if myFilter %}
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                {% endif %}
             </form>
         </div>
     </div>
