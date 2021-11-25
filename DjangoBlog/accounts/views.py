@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from .models import *
 
 
@@ -13,5 +12,6 @@ def post(request, pk):
     return render(request, 'accounts/posts.html', {'post': post})
 
 
-def user(request):
-    return render(request, 'accounts/user.html')
+def user(request, pk):
+    posts = Post.objects.filter(author=pk)
+    return render(request, 'accounts/dashboard.html', {'posts': posts})
