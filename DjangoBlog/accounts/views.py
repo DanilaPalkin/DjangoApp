@@ -27,8 +27,9 @@ def user(request, pk):
 
 
 def registerPage(request):
+    if request.user.is_authenticated:
+        return redirect('/')
     form = UserCreationForm()
-
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -41,6 +42,8 @@ def registerPage(request):
 
 
 def loginPage(request):
+    if request.user.is_authenticated:
+        return redirect('/')
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')

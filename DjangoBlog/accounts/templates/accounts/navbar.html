@@ -15,6 +15,9 @@
                 <span style="color: white">Привет, {{request.user}}</span>
                 <span><a href="/logout" style="color: white;">Выйти</a></span>
             {% endif %}
+            {% if request.user.is_anonymous %}
+                <span><a href="/login" style="color: white;">Войти</a></span>
+            {% endif %}
             <form method="get">
                 {{ myFilter.form }}
                 {% if myFilter %}

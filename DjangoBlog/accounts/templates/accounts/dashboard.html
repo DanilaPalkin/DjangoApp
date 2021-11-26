@@ -1,11 +1,13 @@
 {% extends 'accounts/base.html' %}
 
 {% block content %}
-    <table align="center">
-        <tr>
-            <td><a class="btn btn-success btn-lg" href="#" role="button">Создать пост</a></td>
-            <td><a class="btn btn-danger btn-lg" href="#" role="button">Удалить пост</a></td>
-        </tr>
+    {% if request.user.is_authenticated %}
+        <table align="center">
+            <tr>
+                <td><a class="btn btn-success btn-lg" href="#" role="button">Создать пост</a></td>
+                <td><a class="btn btn-danger btn-lg" href="#" role="button">Удалить пост</a></td>
+            </tr>
+    {% endif %}
     </table>
     <br>
     {% for i in posts %}
