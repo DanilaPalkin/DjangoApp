@@ -11,6 +11,10 @@
                     <a class="nav-link active" aria-current="page" href="/">Главная</a>
                 </li>
             </ul>
+            {% if request.user.is_authenticated %}
+                <span style="color: white">Привет, {{request.user}}</span>
+                <span><a href="/logout" style="color: white;">Выйти</a></span>
+            {% endif %}
             <form method="get">
                 {{ myFilter.form }}
                 {% if myFilter %}
