@@ -80,6 +80,8 @@ def deletePost(request, pk):
     if request.user.is_anonymous:
         return redirect('/')
     post = Post.objects.get(id=pk)
+    if request.user != post.author:
+        return redirect('/')
     if request.method == 'POST':
         post.delete()
         return redirect('/')
