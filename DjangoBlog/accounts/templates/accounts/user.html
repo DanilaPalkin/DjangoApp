@@ -2,6 +2,8 @@
 {% load static %}
 {% block content %}
 
+<h2 style="margin-left: 50px;">Создание поста</h2>
+<br>
 {# https://stackoverflow.com/questions/43579909/image-is-not-uploaded-via-django-form #}
 <form class="form-horizontal form_middle" enctype='multipart/form-data' method="POST">
     {% csrf_token %}

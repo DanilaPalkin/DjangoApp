@@ -75,3 +75,12 @@ def createPost(request):
     else:
         form = PostForm()
     return render(request, 'accounts/user.html', {'form': form})
+
+def deletePost(request, pk):
+    if request.user.is_anonymous:
+        return redirect('/')
+    post = Post.objects.get(id=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('/')
+    return render(request, 'accounts/delete.html', {'post': post})

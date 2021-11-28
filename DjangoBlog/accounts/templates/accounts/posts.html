@@ -18,4 +18,7 @@
         <a href="/post/{{post.id}}" align="right">{{post.date_created}}</a>
     </div>
     <br>
+    {% if request.user.is_authenticated %}
+        <p align="center"><a class="btn btn-lg btn-danger" href="/delete_post/{{post.id}}">Удалить пост</a></p>
+    {% endif %}
 {% endblock %}

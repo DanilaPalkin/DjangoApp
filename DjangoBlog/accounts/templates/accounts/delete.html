@@ -1,0 +1,13 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div align="center">
+    <p>Удалить запись {{post.title}}?</p>
+    <form action="/delete_post/{{post.id}}/" method="POST">
+        {% csrf_token %}
+        <a href="/">Назад</a>
+        <input type="submit" value="Удалить">
+    </form>
+</div>
+{% endblock %}
