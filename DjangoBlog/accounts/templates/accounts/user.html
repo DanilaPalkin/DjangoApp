@@ -2,7 +2,8 @@
 {% load static %}
 {% block content %}
 
-<form action="" method="POST">
+{# https://stackoverflow.com/questions/43579909/image-is-not-uploaded-via-django-form #}
+<form class="form-horizontal form_middle" enctype='multipart/form-data' method="POST">
     {% csrf_token %}
     {{ form }}
     <input type="submit" name="Опубликовать">

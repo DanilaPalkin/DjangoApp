@@ -63,13 +63,15 @@ def logoutUser(request):
 
 
 def createPost(request):
-
-    form = PostForm()
+    if request.user.is_anonymous:
+        return redirect('/')
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            newpost = form.save(commit=False)
+            newpost.author = request.user
+            newpost.save()
             return redirect('/')
-
-    context = {'form': form}
-    return render(request, 'accounts/user.html', context)
+    else:
+        form = PostForm()
+    return render(request, 'accounts/user.html', {'form': form})
